@@ -1,0 +1,106 @@
+:root {
+    --primary-color: #D83344;
+    --background-color: #101820; /* Dark background */
+    --text-color: #ffffff; /* White text */
+    --confetti-color-1: #f15bb5; /* Pink */
+    --confetti-color-2: #f4d35e; /* Yellow */
+    --confetti-color-3: #00f5d4; /* Light Green */
+    --confetti-color-4: #ff6f61; /* Orange */
+    --confetti-color-5: #1e90ff; /* Blue */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+background: linear-gradient(to bottom right, #101820, #2c3e50);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+}
+
+.celebrate-img {
+    width: 150px; 
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.3s ease;
+}
+
+.message {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px; 
+    font-weight: 600;
+    color: var(--text-color);
+    display: none;
+    z-index: 10;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    opacity: 0;
+    text-transform: capitalize;
+    text-align: center;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out; 
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.message.show {
+    display: flex; 
+    opacity: 1; 
+    transform: translateX(-50%) translateY(0);
+}
+
+.message span {
+    display: block;
+}
+
+.message .heart {
+    font-size: 1.5em; 
+    margin-top: -10px; 
+}
+
+.bounce {
+    animation: bounce 2s ease-in-out;
+}
+@keyframes bounce {
+    0% { transform: translateY(-100px); }
+    50% { transform: translateY(30px); }
+    70% { transform: translateY(10px); }
+    100% { transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .celebrate-img {
+        width: 100px; 
+    }
+
+    .message {
+        font-size: 30px; 
+        top: 10px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .celebrate-img {
+        width: 200px; 
+    }
+
+    .message {
+        font-size: 3rem; 
+        top: 5px; 
+    }
+
+    .message .heart {
+        font-size: 1.2em; 
+    }
+}
